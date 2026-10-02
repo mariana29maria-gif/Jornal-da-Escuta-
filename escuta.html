@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Jornal da Escuta - Cantinho da Escuta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-container": "#6b4b26",
+            "inverse-on-surface": "#85a399",
+            "primary-fixed-dim": "#79e9ba",
+            "on-primary-fixed": "#004933",
+            "on-error": "#fff7f6",
+            "on-surface-variant": "#2f695a",
+            "secondary-fixed-dim": "#facc9d",
+            "on-secondary-fixed": "#573916",
+            "primary-fixed": "#88f8c8",
+            primary: "#006d4d",
+            "on-tertiary-fixed-variant": "#603500",
+            "surface-variant": "#b3efdc",
+            "on-tertiary": "#fff7f4",
+            "on-background": "#003a2f",
+            error: "#ac3434",
+            "secondary-fixed": "#ffddbb",
+            "surface-container-high": "#bff3e2",
+            "on-primary-fixed-variant": "#00694a",
+            "outline-variant": "#83bdac",
+            "surface-bright": "#e6fff5",
+            "secondary-container": "#ffddbb",
+            "on-primary": "#e5fff0",
+            "surface-container-low": "#d5fcef",
+            "surface-container": "#caf8e8",
+            "on-tertiary-container": "#542d00",
+            "surface-dim": "#a4e7d3",
+            surface: "#e6fff5",
+            "on-error-container": "#65000b",
+            "on-primary-container": "#005e42",
+            "on-tertiary-fixed": "#341a00",
+            "tertiary-fixed-dim": "#ec9840",
+            secondary: "#7a5832",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#003a2f",
+            tertiary: "#8d5000",
+            outline: "#4c8576",
+            "tertiary-container": "#fca54c",
+            "inverse-surface": "#00110d",
+            "surface-container-highest": "#b3efdc",
+            "on-secondary-fixed-variant": "#76552f",
+            "on-secondary": "#fff7f3",
+            "error-container": "#f56965",
+            "tertiary-fixed": "#fca54c",
+            "primary-container": "#88f8c8",
+            background: "#e6fff5",
+            "inverse-primary": "#8dfecd",
+            "surface-tint": "#006d4d",
+            "error-dim": "#70030f",
+            "tertiary-dim": "#7c4600",
+            "secondary-dim": "#6d4d28",
+            "primary-dim": "#005f43"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "section-gap": "120px",
+            unit: "8px",
+            "margin-mobile": "20px",
+            "margin-desktop": "64px",
+            gutter: "24px"
+          },
+          fontFamily: {
+            "headline-lg": ["Newsreader", "serif"],
+            caption: ["Hanken Grotesk", "sans-serif"],
+            "label-caps": ["Space Mono", "monospace"],
+            "body-md": ["Hanken Grotesk", "sans-serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "headline-lg-mobile": ["Newsreader", "serif"],
+            "display-xl": ["Newsreader", "serif"],
+            "body-lg": ["Hanken Grotesk", "sans-serif"],
+            headline: ["Newsreader"],
+            display: ["Newsreader"],
+            body: ["Hanken Grotesk"],
+            label: ["Space Mono"]
+          },
+          fontSize: {
+            "headline-lg": ["48px", { lineHeight: "52px", fontWeight: "600" }],
+            caption: ["13px", { lineHeight: "18px", fontWeight: "500" }],
+            "label-caps": ["14px", { lineHeight: "16px", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "38px", fontWeight: "500" }],
+            "headline-lg-mobile": ["36px", { lineHeight: "40px", fontWeight: "600" }],
+            "display-xl": ["72px", { lineHeight: "76px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .collage-border {
+      border: 2px solid theme('colors.primary');
+    }
+    .editorial-button-shadow {
+      box-shadow: 4px 4px 0px 0px #fdc656;
+      transition: all 0.2s ease;
+    }
+    .editorial-button-shadow:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px 0px #fdc656;
+    }
+    .tape-accent {
+      background-color: rgba(253, 198, 86, 0.75);
+      transform: rotate(-3deg);
+      mix-blend-mode: multiply;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-secondary-container selection:text-primary">
+
+  <!-- TopAppBar -->
+  <header class="bg-background dark:bg-background w-full top-0 sticky z-40 border-b-2 border-primary dark:border-primary-fixed">
+    <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-full mx-auto">
+      <div class="flex items-center gap-4">
+        <button aria-label="Abrir menu de navegação" class="text-primary dark:text-inverse-primary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 md:hidden p-1 focus:outline-none focus:ring-2 focus:ring-primary" id="mobile-menu-btn">
+          <span class="material-symbols-outlined" style="font-size: 28px;">menu_book</span>
+        </button>
+        <a href="index.html" class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary dark:text-inverse-primary tracking-tighter hover:opacity-90 transition-opacity">
+          Jornal da Escuta
+        </a>
+      </div>
+      <nav class="hidden md:flex gap-8 items-center" aria-label="Menu principal">
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="index.html">
+          Início
+        </a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="sobre.html">
+          Sobre o Projeto
+        </a>
+        <a class="text-primary dark:text-inverse-primary font-label-caps text-label-caps border-b-2 border-secondary-container translate-y-[-2px] transition-transform" href="escuta.html" aria-current="page">
+          Cantinho da Escuta
+        </a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="galeria.html">
+          Galeria
+        </a>
+      </nav>
+      <a href="escuta.html" class="hidden md:flex items-center gap-2 border-2 border-primary px-6 py-3 font-label-caps text-label-caps text-primary bg-secondary-container transition-transform hover:-translate-y-1 hover:-translate-x-1 relative group">
+        <span class="absolute inset-0 bg-primary-fixed -z-10 translate-x-2 translate-y-2 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></span>
+        Envie sua História
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside class="fixed right-0 top-0 h-full w-64 z-50 p-6 bg-surface dark:bg-surface-container rounded-r-none border-l-2 border-primary transform translate-x-full transition-transform duration-300 flex flex-col md:hidden shadow-[-10px_0_30px_rgba(0,0,0,0.1)]" id="mobile-drawer" aria-label="Navegação mobile">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="font-headline-md text-headline-md text-primary">Navegação Editorial</h2>
+      <button aria-label="Fechar menu" class="text-primary hover:opacity-80 transition-opacity p-1" id="close-drawer-btn">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-2 font-label-caps text-label-caps">
+      <a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all flex items-center gap-3 scale-95 duration-150 transform origin-left hover:scale-100" href="index.html">
+        <span class="material-symbols-outlined">home</span>
+        Início
+      </a>
+      <a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all flex items-center gap-3 scale-95 duration-150 transform origin-left hover:scale-100" href="sobre.html">
+        <span class="material-symbols-outlined">info</span>
+        Sobre o Projeto
+      </a>
+      <a class="bg-secondary-container text-on-secondary-container font-bold px-4 py-2 flex items-center gap-3 scale-95 duration-150 transform origin-left hover:scale-100" href="escuta.html" aria-current="page">
+        <span class="material-symbols-outlined">hearing</span>
+        Cantinho da Escuta
+      </a>
+      <a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all flex items-center gap-3 scale-95 duration-150 transform origin-left hover:scale-100" href="galeria.html">
+        <span class="material-symbols-outlined">photo_library</span>
+        Galeria
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Drawer Overlay -->
+  <div class="fixed inset-0 bg-black/20 z-40 hidden backdrop-blur-sm" id="drawer-overlay"></div>
+
+  <main class="flex-grow px-margin-mobile md:px-margin-desktop py-12 md:py-section-gap max-w-7xl mx-auto w-full">
+    
+    <!-- Hero / Title Section -->
+    <div class="mb-12 relative">
+      <div class="inline-block bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-3 py-1 mb-4 border-2 border-primary">
+        CANTINHO DA ESCUTA
+      </div>
+      <h1 class="font-display-xl text-display-xl text-primary leading-tight mb-4">
+        Sua Voz Tem Valor: Mande Seu Relato
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+        Este é o espaço de acolhimento e escuta da nossa escola. Conte uma vivência, envie uma poesia, sugira uma pauta para o fanzine ou faça um desabafo. A equipe editorial lê todas as mensagens com carinho e respeito.
+      </p>
+    </div>
+
+    <!-- Layout Grid: Form + Editorial Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter items-start">
+      
+      <!-- Main Form Section (7 cols) -->
+      <section class="lg:col-span-7 bg-surface collage-border p-6 md:p-10 relative shadow-[8px_8px_0_0_theme('colors.primary')]">
+        <div class="absolute -top-4 right-8 w-24 h-6 tape-accent"></div>
+        
+        <div class="mb-8 border-b-2 border-primary/20 pb-4">
+          <h2 class="font-headline-md text-2xl text-primary font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">edit_note</span>
+            Formulário de Contribuição
+          </h2>
+          <p class="font-caption text-xs text-on-surface-variant mt-1">
+            Preencha os campos abaixo. Campos marcados com <span class="text-error font-bold">*</span> são obrigatórios.
+          </p>
+        </div>
+
+        <!-- Form Feedback Alert Banner (Initially Hidden) -->
+        <div id="form-feedback" class="hidden mb-6 p-4 border-2 border-primary bg-secondary-container text-on-secondary-container transition-all">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-2xl">check_circle</span>
+            <div>
+              <p class="font-headline-md text-lg font-bold text-primary">Relato pronto para envio!</p>
+              <p class="font-body-md text-sm mt-1">
+                A validação da interface foi concluída com sucesso. No momento, o sistema está configurado em modo de demonstração local e não envia dados para serviços externos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <form id="escuta-form" novalidate class="space-y-6">
+          
+          <!-- Anonymity Toggle -->
+          <div class="bg-surface-container-high p-4 border-2 border-primary">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="anonimo" name="anonimo" class="mt-1 w-5 h-5 rounded border-2 border-primary text-primary focus:ring-primary focus:ring-offset-surface cursor-pointer"/>
+              <label for="anonimo" class="cursor-pointer select-none">
+                <span class="font-headline-md text-base text-primary font-bold block">Quero enviar anonimamente</span>
+                <span class="font-caption text-xs text-on-surface-variant block mt-0.5">
+                  Ao marcar esta opção, seu nome não será exibido nem associado ao texto na publicação.
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Nome (Opcional) -->
+          <div id="nome-group" class="transition-opacity duration-200">
+            <label for="nome" class="block font-label-caps text-xs text-primary mb-2">
+              Nome ou Apelido <span class="text-on-surface-variant font-normal">(opcional)</span>
+            </label>
+            <input type="text" id="nome" name="nome" placeholder="Como você gostaria de ser chamado(a)?" class="w-full bg-background border-2 border-primary p-3 font-body-md text-on-background focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary placeholder:text-on-surface-variant/50 transition-colors"/>
+            <p class="font-caption text-[11px] text-on-surface-variant mt-1">Você pode usar apenas o primeiro nome, turma ou um pseudônimo.</p>
+          </div>
+
+          <!-- Tipo de Contribuição -->
+          <div>
+            <label for="tipo" class="block font-label-caps text-xs text-primary mb-2">
+              Tipo de Contribuição <span class="text-error font-bold">*</span>
+            </label>
+            <select id="tipo" name="tipo" required class="w-full bg-background border-2 border-primary p-3 font-body-md text-on-background focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary cursor-pointer transition-colors">
+              <option value="" disabled selected>Selecione uma categoria...</option>
+              <option value="relato">Relato do Cotidiano Escolar</option>
+              <option value="poesia">Poesia, Crônica ou Arte Escrita</option>
+              <option value="desabafo">Desabafo / Espaço de Acolhimento</option>
+              <option value="pauta">Sugestão de Pauta para a Redação</option>
+              <option value="outro">Outro tipo de contribuição</option>
+            </select>
+            <span id="tipo-error" class="hidden font-caption text-xs text-error mt-1 flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs">error</span> Por favor, selecione o tipo de contribuição.
+            </span>
+          </div>
+
+          <!-- Título -->
+          <div>
+            <label for="titulo" class="block font-label-caps text-xs text-primary mb-2">
+              Título do Relato <span class="text-error font-bold">*</span>
+            </label>
+            <input type="text" id="titulo" name="titulo" required placeholder="Dê um título para sua mensagem..." class="w-full bg-background border-2 border-primary p-3 font-body-md text-on-background focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary placeholder:text-on-surface-variant/50 transition-colors"/>
+            <span id="titulo-error" class="hidden font-caption text-xs text-error mt-1 flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs">error</span> O título é obrigatório.
+            </span>
+          </div>
+
+          <!-- Mensagem / Relato -->
+          <div>
+            <label for="mensagem" class="block font-label-caps text-xs text-primary mb-2">
+              Sua Mensagem ou História <span class="text-error font-bold">*</span>
+            </label>
+            <textarea id="mensagem" name="mensagem" rows="6" required placeholder="Escreva aqui o que você está sentindo, pensando ou gostaria de ver publicado no Jornal..." class="w-full bg-background border-2 border-primary p-3 font-body-md text-on-background focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary placeholder:text-on-surface-variant/50 transition-colors"></textarea>
+            <div class="flex justify-between items-center mt-1">
+              <span id="mensagem-error" class="hidden font-caption text-xs text-error flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs">error</span> Por favor, escreva sua mensagem antes de enviar.
+              </span>
+              <span class="font-caption text-[11px] text-on-surface-variant ml-auto" id="char-counter">0 caracteres</span>
+            </div>
+          </div>
+
+          <!-- Contato (Opcional) -->
+          <div>
+            <label for="contato" class="block font-label-caps text-xs text-primary mb-2">
+              Contato para Retorno <span class="text-on-surface-variant font-normal">(opcional: e-mail ou WhatsApp/turma)</span>
+            </label>
+            <input type="text" id="contato" name="contato" placeholder="ex: aluno@escola.edu ou (11) 90000-0000" class="w-full bg-background border-2 border-primary p-3 font-body-md text-on-background focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary placeholder:text-on-surface-variant/50 transition-colors"/>
+            <p class="font-caption text-[11px] text-on-surface-variant mt-1">
+              Preencha apenas se desejar que a equipe editorial entre em contato sobre a publicação.
+            </p>
+          </div>
+
+          <!-- Botão de Envio -->
+          <div class="pt-4 border-t-2 border-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-primary bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 editorial-button-shadow cursor-pointer">
+              <span class="material-symbols-outlined text-xl">send</span>
+              Enviar Meu Relato
+            </button>
+            <button type="reset" id="reset-btn" class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors py-2 px-3">
+              Limpar formulário
+            </button>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- Editorial Sidebar / Guidelines (5 cols) -->
+      <aside class="lg:col-span-5 space-y-8">
+        
+        <!-- Card 1: Como Funciona -->
+        <div class="bg-surface-container-high collage-border p-6 relative shadow-[6px_6px_0_0_theme('colors.primary')]">
+          <div class="w-12 h-12 rounded-full bg-secondary-container border-2 border-primary flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-primary text-2xl">help</span>
+          </div>
+          <h3 class="font-headline-md text-xl text-primary font-bold mb-3">Como funciona a Escuta?</h3>
+          <ul class="space-y-3 font-body-md text-sm text-on-surface-variant">
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-primary text-base mt-0.5">check</span>
+              <span><strong>Leitura atenta:</strong> Cada mensagem é lida com cuidado e respeito pela equipe editorial do coletivo.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-primary text-base mt-0.5">check</span>
+              <span><strong>Seleção para o zine:</strong> Relatos selecionados para a edição impressa ou mural passam por diagramação artística.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-primary text-base mt-0.5">check</span>
+              <span><strong>Respeito à sua escolha:</strong> Se você optar pelo anonimato, seu nome nunca será divulgado.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Nota Editorial sobre Privacidade e Acolhimento -->
+        <div class="bg-secondary-container collage-border p-6 relative shadow-[6px_6px_0_0_theme('colors.primary')]">
+          <div class="absolute -top-3 left-6 w-20 h-5 tape-accent"></div>
+          <h3 class="font-headline-md text-lg text-on-secondary-container font-bold mb-2 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl">info</span>
+            Transparência &amp; Cuidados
+          </h3>
+          <p class="font-body-md text-xs text-on-secondary-container leading-relaxed">
+            O Jornal da Escuta é uma iniciativa de protagonismo e convivência estudantil. As mensagens são geridas pelo coletivo escolar. Buscamos garantir o máximo de cuidado e respeito na mediação de todas as mensagens recebidas.
+          </p>
+          <p class="font-body-md text-xs text-on-secondary-container mt-2 pt-2 border-t border-primary/20">
+            <em>Em caso de situações que necessitem de apoio pedagógico ou psicológico institucional, incentivamos também a busca pela orientação escolar.</em>
+          </p>
+        </div>
+
+        <!-- Card 3: Inspiração de Pautas -->
+        <div class="bg-surface collage-border p-6 relative shadow-[6px_6px_0_0_theme('colors.primary')]">
+          <h3 class="font-headline-md text-lg text-primary font-bold mb-3">O que você pode escrever?</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-label-caps text-[11px] bg-surface-container-high border border-primary px-2 py-1 text-primary">#RotinaEscolar</span>
+            <span class="font-label-caps text-[11px] bg-surface-container-high border border-primary px-2 py-1 text-primary">#Desafios</span>
+            <span class="font-label-caps text-[11px] bg-surface-container-high border border-primary px-2 py-1 text-primary">#PoesiaDeCorredor</span>
+            <span class="font-label-caps text-[11px] bg-surface-container-high border border-primary px-2 py-1 text-primary">#Amizades</span>
+            <span class="font-label-caps text-[11px] bg-surface-container-high border border-primary px-2 py-1 text-primary">#IdeiasParaAEscola</span>
+            <span class="font-label-caps text-[11px] bg-surface-container-high border border-primary px-2 py-1 text-primary">#Agradecimento</span>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-highest dark:bg-surface-container-lowest w-full mt-section-gap border-t-[3px] border-primary dark:border-primary-fixed-dim">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-12 w-full max-w-7xl mx-auto gap-8">
+      <div class="flex flex-col items-center md:items-start gap-1">
+        <div class="font-headline-md text-headline-md italic text-primary">
+          Jornal da Escuta
+        </div>
+        <p class="font-caption text-xs text-on-surface-variant">Publicação fanzine do Coletivo Fala que Eu Te Escuto</p>
+      </div>
+      
+      <nav class="flex flex-wrap justify-center gap-6 font-caption text-caption" aria-label="Links rápidos">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">Início</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="sobre.html">Sobre o Projeto</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="escuta.html">Cantinho da Escuta</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="galeria.html">Galeria</a>
+      </nav>
+
+      <div class="font-caption text-caption text-on-surface-variant text-center md:text-right text-xs">
+        © 2026 Jornal da Escuta - Coletivo Editorial Estudantil
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation Drawer Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+
+    function openDrawer() {
+      mobileDrawer.classList.remove('translate-x-full');
+      drawerOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.add('translate-x-full');
+      drawerOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn?.addEventListener('click', openDrawer);
+    closeDrawerBtn?.addEventListener('click', closeDrawer);
+    drawerOverlay?.addEventListener('click', closeDrawer);
+
+    // Form Handling & Visual Validation
+    const escutaForm = document.getElementById('escuta-form');
+    const anonimoCheckbox = document.getElementById('anonimo');
+    const nomeInput = document.getElementById('nome');
+    const nomeGroup = document.getElementById('nome-group');
+    const tipoSelect = document.getElementById('tipo');
+    const tituloInput = document.getElementById('titulo');
+    const mensagemTextarea = document.getElementById('mensagem');
+    const charCounter = document.getElementById('char-counter');
+    const feedbackBanner = document.getElementById('form-feedback');
+
+    // Anonymous toggle handler
+    anonimoCheckbox?.addEventListener('change', () => {
+      if (anonimoCheckbox.checked) {
+        nomeInput.value = '';
+        nomeInput.disabled = true;
+        nomeInput.placeholder = 'Envio anônimo selecionado';
+        nomeGroup.classList.add('opacity-50');
+      } else {
+        nomeInput.disabled = false;
+        nomeInput.placeholder = 'Como você gostaria de ser chamado(a)?';
+        nomeGroup.classList.remove('opacity-50');
+      }
+    });
+
+    // Character counter
+    mensagemTextarea?.addEventListener('input', () => {
+      const length = mensagemTextarea.value.length;
+      charCounter.textContent = `${length} caractere${length === 1 ? '' : 's'}`;
+    });
+
+    // Client-side visual validation
+    escutaForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+
+      // Validate Tipo
+      const tipoError = document.getElementById('tipo-error');
+      if (!tipoSelect.value) {
+        tipoError.classList.remove('hidden');
+        tipoSelect.classList.add('border-error');
+        isValid = false;
+      } else {
+        tipoError.classList.add('hidden');
+        tipoSelect.classList.remove('border-error');
+      }
+
+      // Validate Titulo
+      const tituloError = document.getElementById('titulo-error');
+      if (!tituloInput.value.trim()) {
+        tituloError.classList.remove('hidden');
+        tituloInput.classList.add('border-error');
+        isValid = false;
+      } else {
+        tituloError.classList.add('hidden');
+        tituloInput.classList.remove('border-error');
+      }
+
+      // Validate Mensagem
+      const mensagemError = document.getElementById('mensagem-error');
+      if (!mensagemTextarea.value.trim()) {
+        mensagemError.classList.remove('hidden');
+        mensagemTextarea.classList.add('border-error');
+        isValid = false;
+      } else {
+        mensagemError.classList.add('hidden');
+        mensagemTextarea.classList.remove('border-error');
+      }
+
+      if (isValid) {
+        // Show in-page confirmation banner
+        feedbackBanner.classList.remove('hidden');
+        feedbackBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // Reset form inputs gracefully
+        escutaForm.reset();
+        if (anonimoCheckbox.checked) {
+          nomeInput.disabled = false;
+          nomeGroup.classList.remove('opacity-50');
+        }
+        charCounter.textContent = '0 caracteres';
+      }
+    });
+  </script>
+</body>
+</html>

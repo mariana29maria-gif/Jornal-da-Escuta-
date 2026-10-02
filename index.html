@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Jornal da Escuta - Início</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-container": "#6b4b26",
+            "inverse-on-surface": "#85a399",
+            "primary-fixed-dim": "#79e9ba",
+            "on-primary-fixed": "#004933",
+            "on-error": "#fff7f6",
+            "on-surface-variant": "#2f695a",
+            "secondary-fixed-dim": "#facc9d",
+            "on-secondary-fixed": "#573916",
+            "primary-fixed": "#88f8c8",
+            primary: "#006d4d",
+            "on-tertiary-fixed-variant": "#603500",
+            "surface-variant": "#b3efdc",
+            "on-tertiary": "#fff7f4",
+            "on-background": "#003a2f",
+            error: "#ac3434",
+            "secondary-fixed": "#ffddbb",
+            "surface-container-high": "#bff3e2",
+            "on-primary-fixed-variant": "#00694a",
+            "outline-variant": "#83bdac",
+            "surface-bright": "#e6fff5",
+            "secondary-container": "#ffddbb",
+            "on-primary": "#e5fff0",
+            "surface-container-low": "#d5fcef",
+            "surface-container": "#caf8e8",
+            "on-tertiary-container": "#542d00",
+            "surface-dim": "#a4e7d3",
+            surface: "#e6fff5",
+            "on-error-container": "#65000b",
+            "on-primary-container": "#005e42",
+            "on-tertiary-fixed": "#341a00",
+            "tertiary-fixed-dim": "#ec9840",
+            secondary: "#7a5832",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#003a2f",
+            tertiary: "#8d5000",
+            outline: "#4c8576",
+            "tertiary-container": "#fca54c",
+            "inverse-surface": "#00110d",
+            "surface-container-highest": "#b3efdc",
+            "on-secondary-fixed-variant": "#76552f",
+            "on-secondary": "#fff7f3",
+            "error-container": "#f56965",
+            "tertiary-fixed": "#fca54c",
+            "primary-container": "#88f8c8",
+            background: "#e6fff5",
+            "inverse-primary": "#8dfecd",
+            "surface-tint": "#006d4d",
+            "error-dim": "#70030f",
+            "tertiary-dim": "#7c4600",
+            "secondary-dim": "#6d4d28",
+            "primary-dim": "#005f43"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "section-gap": "120px",
+            unit: "8px",
+            "margin-mobile": "20px",
+            "margin-desktop": "64px",
+            gutter: "24px"
+          },
+          fontFamily: {
+            "headline-lg": ["Newsreader", "serif"],
+            caption: ["Hanken Grotesk", "sans-serif"],
+            "label-caps": ["Space Mono", "monospace"],
+            "body-md": ["Hanken Grotesk", "sans-serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "headline-lg-mobile": ["Newsreader", "serif"],
+            "display-xl": ["Newsreader", "serif"],
+            "body-lg": ["Hanken Grotesk", "sans-serif"],
+            headline: ["Newsreader"],
+            display: ["Newsreader"],
+            body: ["Hanken Grotesk"],
+            label: ["Space Mono"]
+          },
+          fontSize: {
+            "headline-lg": ["48px", { lineHeight: "52px", fontWeight: "600" }],
+            caption: ["13px", { lineHeight: "18px", fontWeight: "500" }],
+            "label-caps": ["14px", { lineHeight: "16px", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "38px", fontWeight: "500" }],
+            "headline-lg-mobile": ["36px", { lineHeight: "40px", fontWeight: "600" }],
+            "display-xl": ["72px", { lineHeight: "76px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .editorial-button-shadow {
+      box-shadow: 4px 4px 0px 0px #fdc656;
+      transition: all 0.2s ease;
+    }
+    .editorial-button-shadow:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px 0px #fdc656;
+    }
+    .collage-border {
+      border: 2px solid theme('colors.primary');
+    }
+    .speech-bubble-tail {
+      position: absolute;
+      bottom: -15px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid theme('colors.primary');
+    }
+    .speech-bubble-tail::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: -12px;
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 12px solid theme('colors.secondary-container');
+    }
+    .tape-accent {
+      background-color: rgba(253, 198, 86, 0.75);
+      transform: rotate(-3deg);
+      mix-blend-mode: multiply;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-secondary-container selection:text-primary">
+
+  <!-- TopAppBar -->
+  <header class="bg-background dark:bg-background w-full top-0 sticky border-b-2 border-primary dark:border-primary-fixed z-40">
+    <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-full mx-auto">
+      <div class="flex items-center gap-4">
+        <button aria-label="Abrir menu de navegação" class="text-primary dark:text-inverse-primary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300 md:hidden p-1 focus:outline-none focus:ring-2 focus:ring-primary" id="drawer-toggle">
+          <span class="material-symbols-outlined" style="font-size: 28px;">menu_book</span>
+        </button>
+        <a href="index.html" class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary dark:text-inverse-primary tracking-tighter hover:opacity-90 transition-opacity">
+          Jornal da Escuta
+        </a>
+      </div>
+      <nav class="hidden md:flex gap-8 items-center" aria-label="Menu principal">
+        <a class="text-primary dark:text-inverse-primary font-label-caps text-label-caps border-b-2 border-secondary-container translate-y-[-2px] transition-transform" href="index.html" aria-current="page">
+          Início
+        </a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="sobre.html">
+          Sobre o Projeto
+        </a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="escuta.html">
+          Cantinho da Escuta
+        </a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="galeria.html">
+          Galeria
+        </a>
+      </nav>
+      <a href="escuta.html" class="hidden md:inline-flex items-center gap-2 border-2 border-primary px-6 py-3 font-label-caps text-label-caps text-primary bg-surface transition-transform hover:-translate-y-1 hover:-translate-x-1 relative group">
+        <span class="absolute inset-0 bg-secondary-container -z-10 translate-x-2 translate-y-2 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></span>
+        Envie sua História
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside class="bg-surface dark:bg-surface-container border-l-2 border-primary rounded-r-none fixed right-0 top-0 h-full w-64 z-50 p-6 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.1)]" id="nav-drawer" aria-label="Navegação mobile">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="font-headline-md text-headline-md text-primary">Navegação Editorial</h2>
+      <button aria-label="Fechar menu" class="text-primary hover:opacity-80 transition-opacity p-1" id="drawer-close">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-2 font-label-caps text-label-caps text-primary dark:text-inverse-primary">
+      <a class="bg-secondary-container text-on-secondary-container font-bold px-4 py-2 flex items-center gap-3 scale-95 duration-150 transform origin-left hover:scale-100" href="index.html" aria-current="page">
+        <span class="material-symbols-outlined">home</span>
+        Início
+      </a>
+      <a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-all scale-95 duration-150 transform origin-left hover:scale-100" href="sobre.html">
+        <span class="material-symbols-outlined">info</span>
+        Sobre o Projeto
+      </a>
+      <a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-all scale-95 duration-150 transform origin-left hover:scale-100" href="escuta.html">
+        <span class="material-symbols-outlined">hearing</span>
+        Cantinho da Escuta
+      </a>
+      <a class="text-on-surface-variant dark:text-on-surface-variant px-4 py-2 flex items-center gap-3 hover:bg-surface-container-highest transition-all scale-95 duration-150 transform origin-left hover:scale-100" href="galeria.html">
+        <span class="material-symbols-outlined">photo_library</span>
+        Galeria
+      </a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-primary/20">
+      <a href="escuta.html" class="w-full text-center inline-block border-2 border-primary bg-secondary-container text-on-secondary-container font-label-caps text-label-caps py-3 px-4 shadow-[3px_3px_0_0_theme('colors.primary')]">
+        Envie sua História
+      </a>
+    </div>
+  </aside>
+
+  <!-- Backdrop Overlay -->
+  <div class="fixed inset-0 bg-primary/20 z-40 hidden backdrop-blur-sm" id="drawer-overlay"></div>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden">
+      <div class="absolute top-20 right-[-10%] w-[60%] h-[80%] bg-surface-container-highest rounded-full blur-3xl opacity-50 -z-10"></div>
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter relative">
+        
+        <div class="lg:col-span-7 flex flex-col justify-center z-10 relative">
+          <div class="absolute -top-10 -left-10 w-32 h-8 tape-accent z-20"></div>
+          
+          <h1 class="font-display-xl text-display-xl text-primary leading-none mb-6 relative">
+            <span class="relative z-10">Jornal da Escuta</span>
+            <span class="absolute bottom-2 left-0 w-full h-6 bg-secondary-container -z-10 mix-blend-multiply"></span>
+          </h1>
+
+          <div class="relative border-2 border-primary p-6 mb-8 inline-block max-w-2xl transform -rotate-1 bg-secondary-container">
+            <p class="font-headline-md text-headline-md italic leading-tight text-on-secondary-container">
+              "A voz, as ideias e as histórias da nossa comunidade escolar."
+            </p>
+            <div class="speech-bubble-tail"></div>
+          </div>
+
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl pl-4 border-l-4 border-secondary-container">
+            Produzido pelo <strong>Coletivo Fala que Eu Te Escuto</strong>. Um espaço fanzine dedicado à escuta ativa, onde estudantes se tornam repórteres, artistas e narradores do cotidiano escolar. Aqui, nenhuma história é pequena demais.
+          </p>
+
+          <div class="flex flex-wrap gap-6">
+            <a class="inline-flex items-center justify-center border-2 border-primary bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 editorial-button-shadow" href="#destaques">
+              Ler Edição Atual
+            </a>
+            <a class="inline-flex items-center justify-center border-2 border-primary bg-background text-primary font-label-caps text-label-caps px-8 py-4 hover:bg-secondary-container transition-colors duration-300" href="escuta.html">
+              Envie sua História
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative mt-12 lg:mt-0">
+          <div class="relative z-10 border-2 border-primary p-3 bg-surface transform rotate-2 shadow-[8px_8px_0_0_theme('colors.primary')]">
+            <div class="absolute top-3 -right-6 w-24 h-6 tape-accent z-20 transform rotate-[15deg]"></div>
+            
+            <!-- Collage Placeholder Visual -->
+            <div class="w-full aspect-[4/3] bg-surface-container-high border border-primary/40 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden group">
+              <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(theme('colors.primary') 1.5px, transparent 1.5px); background-size: 16px 16px;"></div>
+              <div class="w-16 h-16 rounded-full bg-secondary-container border-2 border-primary flex items-center justify-center mb-3 shadow-[2px_2px_0_0_theme('colors.primary')]">
+                <span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
+              </div>
+              <span class="font-label-caps text-xs text-primary uppercase tracking-widest bg-secondary-container px-2 py-0.5 border border-primary mb-2">Edição Coletiva #01</span>
+              <p class="font-headline-md text-xl text-primary font-semibold leading-tight">Coletivo Fala que Eu Te Escuto</p>
+              <p class="font-caption text-xs text-on-surface-variant mt-2 max-w-xs">Mosaico visual de textos, ilustrações e vozes dos alunos em formato fanzine.</p>
+              <div class="mt-3 font-label-caps text-[11px] text-on-surface-variant/80 border-t border-primary/20 pt-2 w-full flex justify-between">
+                <span>Espaço para imagem</span>
+                <span>Fanzine 2026</span>
+              </div>
+            </div>
+
+            <div class="mt-3 flex justify-between items-center px-2 py-1 font-label-caps text-xs text-on-surface-variant border-t border-primary/20">
+              <span>Redação Estudantil</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">palette</span> Edição Viva</span>
+            </div>
+          </div>
+          <div class="absolute top-10 -left-10 w-full h-full bg-secondary-container border-2 border-primary -z-10 transform -rotate-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifesto / Welcome Section -->
+    <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low border-y-2 border-primary relative">
+      <div class="absolute right-0 top-0 w-64 h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmNmOWYzIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjMDAyNDQ2IiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-20 pointer-events-none"></div>
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+        
+        <div class="w-full md:w-5/12 relative">
+          <div class="absolute -inset-4 bg-tertiary-container border-2 border-primary transform -rotate-2 z-0"></div>
+          <div class="relative z-10 border-2 border-primary bg-background p-8 shadow-[6px_6px_0_0_theme('colors.primary')]">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Bem-vindos ao Nosso Espaço</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Este jornal não é feito apenas para ser lido; é feito para ser construído em conjunto. Rasgue, recorte, pinte e comente. A nossa escola é um mosaico de experiências que merecem ser contadas em voz alta.
+            </p>
+            <div class="mt-6 pt-4 border-t-2 border-primary/20 flex items-center justify-between">
+              <span class="font-label-caps text-xs text-primary font-bold">Coletivo Editorial</span>
+              <a href="sobre.html" class="font-label-caps text-xs text-primary hover:underline flex items-center gap-1">
+                Conheça a história <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-7/12 grid grid-cols-2 gap-4">
+          <div class="border-2 border-primary overflow-hidden h-52 transform translate-y-6 bg-surface-container-high p-4 flex flex-col justify-between relative shadow-[4px_4px_0_0_theme('colors.primary')]">
+            <div class="flex justify-between items-start">
+              <span class="font-label-caps text-xs bg-secondary-container border border-primary px-2 py-0.5 text-primary">Processo</span>
+              <span class="material-symbols-outlined text-primary text-xl">draw</span>
+            </div>
+            <div class="text-center">
+              <span class="font-headline-md text-2xl text-primary italic">Fanzine Artesanal</span>
+              <p class="font-caption text-xs text-on-surface-variant mt-1">Escrita coletiva, colagem e tipografia livre.</p>
+            </div>
+            <div class="font-label-caps text-[10px] text-on-surface-variant text-right">Espaço para fotografia</div>
+          </div>
+
+          <div class="border-2 border-primary overflow-hidden h-64 bg-secondary-container flex flex-col items-center justify-center p-6 text-center relative shadow-[4px_4px_0_0_theme('colors.primary')]">
+            <div class="absolute w-full h-full opacity-20 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #006d4d 0, #006d4d 1px, transparent 0, transparent 20px);"></div>
+            <span class="material-symbols-outlined text-primary text-6xl relative z-10 mb-3" style="font-variation-settings: 'FILL' 1;">forum</span>
+            <p class="font-headline-md text-lg text-on-secondary-container font-semibold relative z-10">Roda de Conversa Aberta</p>
+            <p class="font-caption text-xs text-on-secondary-container/80 mt-1 relative z-10">Espaço de troca entre turmas e professores.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Destaques da Edição Section -->
+    <section id="destaques" class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+          <div>
+            <div class="inline-block bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-3 py-1 mb-3 border-2 border-primary">
+              EDIÇÃO #01
+            </div>
+            <h2 class="font-display-xl text-display-xl text-primary inline-block relative">
+              Destaques da Edição
+              <svg class="absolute -bottom-4 left-0 w-full" preserveAspectRatio="none" viewBox="0 0 200 10">
+                <path d="M0,5 Q50,10 100,5 T200,5" fill="none" stroke="#006d4d" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+              </svg>
+            </h2>
+          </div>
+          <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 border-b-2 border-transparent hover:border-primary pb-1" href="galeria.html">
+            Ver todas as produções <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-gutter">
+          
+          <!-- Card 1: Vozes da Escola -->
+          <article class="relative group">
+            <div class="absolute inset-0 bg-secondary-container border-2 border-primary transform translate-x-2 translate-y-2 transition-transform group-hover:translate-x-4 group-hover:translate-y-4"></div>
+            <div class="relative bg-surface border-2 border-primary h-full flex flex-col z-10 transition-transform group-hover:-translate-y-1">
+              
+              <div class="h-56 overflow-hidden border-b-2 border-primary relative bg-surface-container-high flex flex-col items-center justify-center p-6 text-center">
+                <div class="absolute top-2 left-2 z-10 bg-secondary-container border-2 border-primary px-2 py-1 font-label-caps text-label-caps text-primary text-xs">
+                  Vozes da Escola
+                </div>
+                <div class="w-14 h-14 rounded-full bg-primary-fixed border-2 border-primary flex items-center justify-center mb-2">
+                  <span class="material-symbols-outlined text-primary text-2xl">record_voice_over</span>
+                </div>
+                <span class="font-headline-md text-sm text-primary italic">Entrevistas no Pátio</span>
+                <span class="font-caption text-[11px] text-on-surface-variant mt-1">(Espaço reservado para fotografia do projeto)</span>
+              </div>
+
+              <div class="p-6 flex-grow flex flex-col justify-between bg-surface">
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight">
+                    O que realmente pensamos sobre o novo intervalo?
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Uma investigação profunda feita pelos alunos do 2º ano sobre as dinâmicas de socialização no pátio principal e o tempo de convivência entre as turmas.
+                  </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-primary/20 flex items-center justify-between font-label-caps text-label-caps text-primary text-xs">
+                  <span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size: 16px;">edit_document</span> Por Mariana S. (2º B)</span>
+                  <span class="text-on-surface-variant">4 min de leitura</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Arte & Cultura -->
+          <article class="relative group md:mt-10">
+            <div class="absolute inset-0 bg-tertiary-container border-2 border-primary transform translate-x-2 translate-y-2 transition-transform group-hover:translate-x-4 group-hover:translate-y-4"></div>
+            <div class="relative bg-surface border-2 border-primary h-full flex flex-col z-10 transition-transform group-hover:-translate-y-1">
+              
+              <div class="h-56 overflow-hidden border-b-2 border-primary relative bg-surface-container-high flex flex-col items-center justify-center p-6 text-center">
+                <div class="absolute top-2 left-2 z-10 bg-secondary-container border-2 border-primary px-2 py-1 font-label-caps text-label-caps text-primary text-xs">
+                  Arte &amp; Cultura
+                </div>
+                <div class="w-14 h-14 rounded-full bg-tertiary-fixed border-2 border-primary flex items-center justify-center mb-2">
+                  <span class="material-symbols-outlined text-primary text-2xl">palette</span>
+                </div>
+                <span class="font-headline-md text-sm text-primary italic">Painel e Arte Urbana</span>
+                <span class="font-caption text-[11px] text-on-surface-variant mt-1">(Espaço reservado para fotografia do projeto)</span>
+              </div>
+
+              <div class="p-6 flex-grow flex flex-col justify-between bg-surface relative">
+                <div class="absolute -top-6 right-4 w-12 h-4 tape-accent z-20"></div>
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight">
+                    Muros que Falam: O projeto de grafite do 3ºão
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Como as paredes do corredor lateral se transformaram em uma tela de expressão coletiva, protesto poético e celebração da diversidade estudantil.
+                  </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-primary/20 flex items-center justify-between font-label-caps text-label-caps text-primary text-xs">
+                  <span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size: 16px;">brush</span> Por Coletivo de Arte</span>
+                  <span class="text-on-surface-variant">Galeria visual</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Convivência & Bem-estar -->
+          <article class="relative group">
+            <div class="absolute inset-0 bg-primary-fixed border-2 border-primary transform translate-x-2 translate-y-2 transition-transform group-hover:translate-x-4 group-hover:translate-y-4"></div>
+            <div class="relative bg-surface border-2 border-primary h-full flex flex-col z-10 transition-transform group-hover:-translate-y-1">
+              
+              <div class="h-56 overflow-hidden border-b-2 border-primary relative bg-surface-container-high flex flex-col items-center justify-center p-6 text-center">
+                <div class="absolute top-2 left-2 z-10 bg-secondary-container border-2 border-primary px-2 py-1 font-label-caps text-label-caps text-primary text-xs">
+                  Convivência &amp; Bem-estar
+                </div>
+                <div class="w-14 h-14 rounded-full bg-secondary-fixed border-2 border-primary flex items-center justify-center mb-2">
+                  <span class="material-symbols-outlined text-primary text-2xl">psychology</span>
+                </div>
+                <span class="font-headline-md text-sm text-primary italic">Cuidado e Acolhimento</span>
+                <span class="font-caption text-[11px] text-on-surface-variant mt-1">(Espaço reservado para fotografia do projeto)</span>
+              </div>
+
+              <div class="p-6 flex-grow flex flex-col justify-between bg-surface">
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-primary mb-3 leading-tight">
+                    O silêncio também é uma forma de escuta
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    A importância dos momentos de descompressão na rotina escolar e como aprender a ouvir o que não é dito através de pequenos gestos diários.
+                  </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-primary/20 flex items-center justify-between font-label-caps text-label-caps text-primary text-xs">
+                  <span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size: 16px;">self_improvement</span> Por Profª. Helena &amp; Alunos</span>
+                  <span class="text-on-surface-variant">3 min de leitura</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="pb-section-gap px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-7xl mx-auto border-2 border-primary bg-secondary-container p-8 md:p-12 relative shadow-[8px_8px_0_0_theme('colors.primary')]">
+        <div class="absolute -top-4 left-10 w-28 h-6 tape-accent"></div>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div class="max-w-2xl">
+            <span class="font-label-caps text-xs text-on-secondary-container uppercase tracking-wider bg-surface px-2.5 py-1 border border-primary inline-block mb-3">Participe da Próxima Edição</span>
+            <h3 class="font-headline-lg text-3xl md:text-4xl text-primary font-bold mb-3 leading-tight">Tem um relato, desenho ou poesia para compartilhar?</h3>
+            <p class="font-body-md text-on-secondary-container">O Cantinho da Escuta está aberto para receber sua contribuição. Você pode escolher como quer se identificar.</p>
+          </div>
+          <a href="escuta.html" class="inline-flex items-center justify-center border-2 border-primary bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 editorial-button-shadow shrink-0">
+            Mandar Meu Relato <span class="material-symbols-outlined ml-2 text-base">send</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-highest dark:bg-surface-container-lowest text-primary dark:text-on-surface font-caption text-caption w-full border-t-[3px] border-primary dark:border-primary-fixed-dim">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-12 w-full gap-8 max-w-7xl mx-auto">
+      <div class="flex flex-col items-center md:items-start gap-1">
+        <div class="font-headline-md text-headline-md italic text-primary">
+          Jornal da Escuta
+        </div>
+        <p class="font-caption text-xs text-on-surface-variant">Publicação fanzine do Coletivo Fala que Eu Te Escuto</p>
+      </div>
+      
+      <nav class="flex flex-wrap gap-6 justify-center" aria-label="Links rápidos">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">Início</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="sobre.html">Sobre o Projeto</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="escuta.html">Cantinho da Escuta</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="galeria.html">Galeria</a>
+      </nav>
+
+      <div class="text-on-surface-variant text-center md:text-right text-xs">
+        © 2026 Jornal da Escuta - Coletivo Editorial Estudantil
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const drawer = document.getElementById('nav-drawer');
+      const toggleBtn = document.getElementById('drawer-toggle');
+      const closeBtn = document.getElementById('drawer-close');
+      const overlay = document.getElementById('drawer-overlay');
+
+      function openDrawer() {
+        drawer.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      toggleBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      overlay?.addEventListener('click', closeDrawer);
+    });
+  </script>
+</body>
+</html>
